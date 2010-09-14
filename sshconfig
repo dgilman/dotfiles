@@ -1,1 +1,7 @@
-/Users/david/.ssh/config
+Host *
+  ControlPath ~/.ssh/master-%r@%h:%p
+  ControlMaster auto
+Compression yes
+CompressionLevel 9
+KeepAlive yes
+ServerAliveInterval 60
