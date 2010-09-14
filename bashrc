@@ -12,3 +12,5 @@ fi
 alias w3m='w3m -F -cookie'
 alias man='w3mman'
 export MANPATH=$MANPATH:/opt/local/man
+
+source ~/.gitcompletion.sh
