@@ -11,6 +11,8 @@ fi
 
 alias w3m='w3m -F -cookie'
 alias man='w3mman'
+alias git='/Users/david/bin/git-achievements'
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 export MANPATH=$MANPATH:/opt/local/man
 
 source ~/.gitcompletion.sh
