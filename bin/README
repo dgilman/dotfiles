@@ -1,0 +1,3 @@
+irssinp: AppleScript that returns a string with the current iTunes playing song.  Meant to be used with "Get result of AppleScript" (cmd-shift-8)
+flac2mp3: extract flac metadata, encode to -V 2 mp3, set id3 tags with id3v2
+latest_additions.php: RSS feed of changes to a bugzilla query.  as-is it shows changes in the firefox 4 blocker list.  you can pretty easily change this to any bugzilla or query.
