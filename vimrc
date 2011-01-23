@@ -28,6 +28,9 @@ set whichwrap+=[
 set whichwrap+=]
 syntax on
 set gfn=Monaco:h10
+set encoding=utf-8
 
 "makefile force real tabs
 autocmd BufEnter ?akefile* set noet ts=8 sw=8 nocindent
+autocmd BufEnter *.lib setf sh
+autocmd BufEnter *.module setf php
