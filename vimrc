@@ -1,9 +1,9 @@
 set nocompatible      	"No Vi Compatibility
 
-set undodir=~/.vim/undodir
-set undofile
-set undolevels=1000 "maximum number of changes that can be undone
-set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+"set undodir=~/.vim/undodir
+"set undofile
+"set undolevels=1000 "maximum number of changes that can be undone
+"set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
 "this does indent on return
 "imap <silent> <CR> <ESC>gg=G<C-O><C-O>o
@@ -36,6 +36,8 @@ nnoremap ? :M?
 nnoremap ,/ /
 nnoremap ,? ?
 
+
+set encoding=utf8
 
 "makefile force real tabs
 autocmd BufEnter ?akefile* set noet ts=8 sw=8 nocindent
