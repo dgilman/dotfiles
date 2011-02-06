@@ -10,21 +10,21 @@ function dgilman_git_status {
    GIT_DIRTY=$(git status --porcelain 2>/dev/null | grep -v "^??")
    GIT_STRING=""
    if [ ! -z "$GIT_BRANCH" ]; then
-      GIT_STRING=$GIT_STRING$GIT_BRANCH
+      GIT_STRING=" ""$GIT_STRING""$GIT_BRANCH"
       if [ ! -z "$GIT_TAG" ]; then
-         GIT_STRING=$GIT_STRING" @ "$GIT_TAG
+         GIT_STRING="$GIT_STRING"" @ ""$GIT_TAG"
       fi
       if [ ! -z "$GIT_DIRTY" ]; then
-         GIT_STRING=$GIT_STRING" d "
+         GIT_STRING="$GIT_STRING"" d "
       fi
    fi
-   echo -n $GIT_STRING
+   echo -n "$GIT_STRING"
 }
 
 if [ "$(id -u)" != "0" ]; then
-	PS1='\[\033[30m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;30m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(dgilman_git_status)\$ '
+	PS1='\[\033[30m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;30m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
 else
-	PS1='\[\033[31m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(dgilman_git_status)\$ '
+	PS1='\[\033[31m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
 fi
 
 alias w3m='w3m -F -cookie'
