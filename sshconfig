@@ -1,7 +1,13 @@
 Host *
-  ControlPath ~/.ssh/master-%r@%h:%p
-  ControlMaster auto
+ControlPath ~/.ssh/master-%r@%h:%p
+ControlMaster auto
 Compression yes
 CompressionLevel 9
 KeepAlive yes
 ServerAliveInterval 60
+
+Host codaset.com
+IdentityFile ~/.ssh/codaset_key
+
+Host backups.gilslotd.com
+IdentityFile ~/.ssh/prgmr_backup_key

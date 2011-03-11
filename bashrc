@@ -3,6 +3,9 @@ export PATH
 export EDITOR=vim
 export PAGER=w3m
 export COWPATH=/opt/local/share/cowsay
+export LDFLAGS=-L/opt/local/lib/
+
+stty erase ^H
 
 function dgilman_git_status {
    GIT_BRANCH=$(git branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
