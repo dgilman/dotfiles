@@ -2,4 +2,6 @@ irssinp: AppleScript that returns a string with the current iTunes playing song.
 flac2mp3: extract flac metadata, encode to -V 2 mp3, set id3 tags with id3v2
 latest_additions.php: RSS feed of changes to a bugzilla query.  as-is it shows changes in the firefox 4 blocker list.  you can pretty easily change this to any bugzilla or query.
 treediff.py: show files not common to two paths
+pysed.py: primitive sed with python regex.
+itunes_diff.py: given an itunes plist and a dirtree shows you files in dirtree not in itunes.  use it to get rid of duplicate songs in itunes after a "Organize Library".
 

@@ -4,6 +4,7 @@ export EDITOR=vim
 export PAGER=w3m
 export COWPATH=/opt/local/share/cowsay
 export LDFLAGS=-L/opt/local/lib/
+export LESS=-R
 
 stty erase ^H
 
