@@ -1,3 +1,4 @@
+# vim: ts=3 et sw=3 sts=3:
 import hashlib
 import os
 import sys

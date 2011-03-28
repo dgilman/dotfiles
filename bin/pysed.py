@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# vim: ts=3 et sw=3 sts=3:
 import re
 import fileinput
 import sys, os

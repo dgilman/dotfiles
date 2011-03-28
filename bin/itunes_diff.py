@@ -1,3 +1,4 @@
+# vim: ts=3 et sw=3 sts=3:
 import plistlib
 import sys
 import os
