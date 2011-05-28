@@ -2,7 +2,7 @@ PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH
 export EDITOR=vim
 export PAGER=w3m
-export COWPATH=/opt/local/share/cowsay
+export COWPATH=/opt/local/share/cowsay/cows/
 export LDFLAGS=-L/opt/local/lib/
 export LESS=-R
 

@@ -1,0 +1,20 @@
+[user]
+	name = David Gilman
+	email = davidgilman1@gmail.com
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[core]
+	excludesfile = /Users/david/.gitignore
+[gui]
+	recentrepo = /Users/david/dotfiles
+[log]
+	decorate = full
+[alias]
+   fix = \
+    "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+   mergeadd = \
+    "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
