@@ -30,6 +30,12 @@ syntax on
 set gfn=Monaco:h10
 set encoding=utf-8
 match Todo /\s\+$/
+"pcre
+nnoremap / :M/
+nnoremap ? :M?
+nnoremap ,/ /
+nnoremap ,? ?
+
 
 "makefile force real tabs
 autocmd BufEnter ?akefile* set noet ts=8 sw=8 nocindent
