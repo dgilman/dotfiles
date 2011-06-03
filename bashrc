@@ -26,15 +26,33 @@ function dgilman_git_status {
 }
 
 if [ "$(id -u)" != "0" ]; then
-	PS1='\[\033[30m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;30m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
+PS1='\[\033[35m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
 else
-	PS1='\[\033[31m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
+PS1='\[\033[31m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
 fi
 
 alias w3m='w3m -F -cookie'
 alias man='w3mman'
-alias git='/Users/david/bin/git-achievements'
+#alias git='/Users/david/bin/git-achievements'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 export MANPATH=$MANPATH:/opt/local/man
 
-source ~/.gitcompletion.sh
+#source ~/.gitcompletion.sh
+
+#debian!?!?
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export TZ=America/Chicago
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
+fi
+
