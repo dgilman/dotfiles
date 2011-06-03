@@ -1,0 +1,6 @@
+[submodule "eregex.vim"]
+	path = eregex.vim
+	url = https://github.com/othree/eregex.vim
+[submodule "vim/eregex.vim"]
+	path = vim/eregex.vim
+	url = https://github.com/othree/eregex.vim
