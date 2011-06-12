@@ -35,6 +35,11 @@ if len(sys.argv) < 3:
    print >> sys.stderr, cheatsheet
    sys.exit()
 
+xargs = False
+if sys.argv[1] == "--xargs":
+   xargs = True
+   sys.argv.pop(1)
+
 regex = re.compile(sys.argv[1])
 replacement = sys.argv[2]
 
@@ -45,4 +50,16 @@ if len(sys.argv) > 3:
          sedfiles.append(sedfile)
 
 for line in fileinput.input(sedfiles):
-   sys.stdout.write(re.sub(regex, replacement, line))
+   replaced = re.sub(regex, replacement, line)
+   if not xargs:
+      sys.stdout.write(replaced)
+   if xargs:
+      import subprocess
+      import shlex
+      popen = subprocess.Popen(shlex.split(replaced))
+      stdout, stderr = popen.communicate()
+      if stdout: print stdout
+      if stderr: print >> sys.stderr, stderr
+      if popen.returncode != 0:
+         print >> sys.stderr, "Aborting: died while trying %s" % replaced
+         sys.exit(popen.returncode)
