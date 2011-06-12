@@ -1,4 +1,4 @@
-PATH=/opt/local/bin:/opt/local/sbin:$PATH
+PATH=/opt/local/bin:/opt/local/sbin:~/dotfiles/bin:$PATH
 export PATH
 export EDITOR=vim
 export PAGER=w3m
