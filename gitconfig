@@ -17,4 +17,5 @@
     "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
    mergeadd = \
     "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
-
+[rerere]
+	enabled = 1
