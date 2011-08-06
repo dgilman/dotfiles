@@ -1,4 +1,4 @@
-PATH=/opt/local/bin:/opt/local/sbin:~/dotfiles/bin:$PATH
+PATH=~/dotfiles/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export PATH
 export EDITOR=vim
 export PAGER=w3m
@@ -26,15 +26,12 @@ function dgilman_git_status {
 }
 
 if [ "$(id -u)" != "0" ]; then
-	PS1='\[\033[30m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;30m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
+	PS1='\[\033[30m\]`date +'%H:%M'`.\[\033[30m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
 else
-	PS1='\[\033[31m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
+	PS1='\[\033[31m\]`date +'%H:%M'`.\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
 fi
 
 alias w3m='w3m -F -cookie'
 alias man='w3mman'
-alias git='/Users/david/bin/git-achievements'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 export MANPATH=$MANPATH:/opt/local/man
-
-source ~/.gitcompletion.sh
