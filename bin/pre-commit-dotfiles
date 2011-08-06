@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+
+import subprocess
+
+popen = subprocess.Popen(["git", "status", "-s"], stdout=subprocess.PIPE)
+
+output = popen.communicate()[0].rsplit("\n")
+
+stopme = False
+for gitfile in output:
+   if len(gitfile) != 0 and gitfile[0] == 'A' and "/" not in gitfile:
+      stopme = True
+
+if stopme:
+   print "Hey!  You added a dotfile!  You probably want to update deploy.py."
+   print "If you know what you're doing git commit --no-verify."
+   import sys
+   sys.exit(-1)
