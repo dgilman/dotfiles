@@ -26,5 +26,8 @@ for key, value in symlinks.items():
    print "Symlinking %s to %s..." % (key, value)
    os.symlink(key, value)
 
+subprocess.call(["git", "submodule", "init"])
+subprocess.call(["git", "submodule", "update"])
+
 print "All done!"
-print "eregex.vim lives in ./vim and is a git submodule.  If you've got vim 7.3 or better you probably want to check that out and install it with a make install."
+print "eregex.vim lives in ./vim and is a git submodule.  If you've got vim 7.3 or better you probably want to install it with a make install."
