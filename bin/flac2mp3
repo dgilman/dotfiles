@@ -24,7 +24,7 @@
 # OTHER  KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE.
 # See the GNU General Public License for more details.
 
-LAME_OPTS="-V 2 --verbose"
+LAME_OPTS="-V 2 --verbose --replaygain-accurate"
 LAME=$(which lame)
 FLAC=$(which flac)
 SOURCE="."
