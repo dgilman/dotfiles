@@ -35,7 +35,11 @@ nnoremap / :M/
 nnoremap ? :M?
 nnoremap ,/ /
 nnoremap ,? ?
-
+"
+filetype plugin on
+"save position
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
 
 set encoding=utf8
 
