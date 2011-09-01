@@ -35,7 +35,11 @@ nnoremap / :M/
 nnoremap ? :M?
 nnoremap ,/ /
 nnoremap ,? ?
-
+"
+filetype plugin on
+"save position
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
 
 "makefile force real tabs
 autocmd BufEnter ?akefile* set noet ts=8 sw=8 nocindent
