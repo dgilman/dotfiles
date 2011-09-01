@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-symlinks = {"bash_profile": "~/.bash_profile", "bashrc": "~/.bashrc", "gitconfig": "~/.gitconfig", "sshconfig": "~/.ssh/config", "vimrc": "~/.vimrc", "wgetrc": "~/.wgetrc", "bin/pre-commit-dotfiles": "~/dotfiles/.git/hooks/pre-commit"}
+symlinks = {"bash_profile": "~/.bash_profile", "bashrc": "~/.bashrc", "gitconfig": "~/.gitconfig", "sshconfig": "~/.ssh/config", "vimrc": "~/.vimrc", "wgetrc": "~/.wgetrc", "bin/pre-commit-dotfiles": "~/dotfiles/.git/hooks/pre-commit", "ledgerrc": "~/.ledgerrc"}
 
 import subprocess
 import os
