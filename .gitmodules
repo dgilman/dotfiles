@@ -4,3 +4,6 @@
 [submodule "vim/eregex.vim"]
 	path = vim/eregex.vim
 	url = https://github.com/othree/eregex.vim
+[submodule "vim/vim-ledger"]
+	path = vim/vim-ledger
+	url = git@github.com:dgilman/vim-ledger.git
