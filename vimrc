@@ -45,4 +45,5 @@ au BufWinEnter * silent loadview
 autocmd BufEnter ?akefile* set noet ts=8 sw=8 nocindent
 autocmd BufEnter *.lib setf sh
 autocmd BufEnter *.module setf php
+autocmd BufEnter *.theme setf php
 autocmd BufEnter *.py :inoremap # X<C-H>#
