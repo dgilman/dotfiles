@@ -22,7 +22,7 @@ website = int(urllib.urlopen("http://gilslotd.com/count.php").read())
 #fd.write("%s,%d,%d\n" % (datetime.date.today().isoformat(),chrome,website))
 #fd.close()
 
-connection = sqlite3.connect("lotdstats.sqlite3", detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
+connection = sqlite3.connect("/Users/david/bin/lotdstats.sqlite3", detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
 c = connection.cursor()
 
 c.execute("insert into lotdstats (ts, bookmarks, queue) values (?, ?, ?)", (datetime.datetime.now(), chrome, website))
@@ -108,20 +108,25 @@ intercept = individual_regressions[0][1]
 #multiplying by average drop % and 1 for the one per day depletion
 regression_slope =  (averaged_slope*average_drop) - 1
 
+# regression_foo  uses the total regression (incl average drop), orig_regression_foo is rate of adding 
+regression_x_0 = epoch_days(series[0]["data"][0][0])
+regression_y_0 = regression_x_0*averaged_slope + intercept
+
+#y_1 will be 0
+regression_intercept = regression_y_0 - (regression_slope*regression_x_0)
+regression_x_1 = numpy.true_divide(-regression_intercept, regression_slope)
+
+orig_regression_y_0 = epoch_days(series[0]["data"][0][0])*averaged_slope+intercept
+orig_regression_y_1 = epoch_days(series[0]["data"][-1][0])*averaged_slope+intercept
+
+#series.append({"name": "Average rate of lotd adding", "data": [[series[0]["data"][0][0], orig_regression_y_0], [series[0]["data"][-1][0], orig_regression_y_1]]})
+
 if regression_slope < 0: #if not, we increase indefinitely
-   regression_x_0 = epoch_days(series[0]["data"][0][0])
-   regression_y_0 = regression_x_0*averaged_slope + intercept
-
-   #y_1 will be 0
-   regression_intercept = regression_y_0 - (regression_slope*regression_x_0)
-   regression_x_1 = numpy.true_divide(-regression_intercept, regression_slope)
-
-   orig_regression_y_0 = epoch_days(series[0]["data"][0][0])*averaged_slope+intercept
-   orig_regression_y_1 = epoch_days(series[0]["data"][-1][0])*averaged_slope+intercept
-
-   series.append({"name": "Average of increase run slopes", "data": [[series[0]["data"][0][0], orig_regression_y_0], [series[0]["data"][-1][0], orig_regression_y_1]]})
-   #series.append({"name": "Regression minus average drop and per-day decrease", "data": [[series[0]["data"][0][0], regression_y_0], [datetime.datetime.fromtimestamp(regression_x_1*86400).isoformat(), 0]]})
-   series[0]["ridealong"] = datetime.datetime.fromtimestamp(regression_x_1*86400).isoformat()
+   try:
+      series.append({"name": "Average rate including average transfer loss", "data": [[series[0]["data"][0][0], regression_y_0], [datetime.datetime.fromtimestamp(regression_x_1*86400).isoformat(), 0]]})
+      series[0]["ridealong"] = datetime.datetime.fromtimestamp(regression_x_1*86400).isoformat()
+   except: #sometimes a date is bigger than time_t...
+      series[0]["ridealong"] = "Really, really far off in the future.  Probably after 2038.  (bigger than the system's time_t)" #TODO: structure this
 else: #infinite increase
    series[0]["ridealong"] = "Infinite increase!"
 
