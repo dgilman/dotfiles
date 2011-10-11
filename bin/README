@@ -4,4 +4,4 @@ latest_additions.php: RSS feed of changes to a bugzilla query.  as-is it shows c
 treediff.py: show files not common to two paths
 pysed.py: primitive sed with python regex.
 itunes_diff.py: given an itunes plist and a dirtree shows you files in dirtree not in itunes.  use it to get rid of duplicate songs in itunes after a "Organize Library".
-
+dep_chart_gen.py: dot file (graphviz) output of macports dependencies

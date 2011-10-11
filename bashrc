@@ -5,6 +5,7 @@ export PAGER=w3m
 export COWPATH=/opt/local/share/cowsay/cows/
 export LDFLAGS=-L/opt/local/lib/
 export LESS=-R
+export GREP_OPTIONS="--color=auto"
 
 stty erase ^H
 
