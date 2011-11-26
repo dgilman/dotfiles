@@ -40,6 +40,8 @@ filetype plugin on
 "save position
 au BufWinLeave * mkview
 au BufWinEnter * silent loadview
+"center after n
+nnoremap n nzzzv<cr>
 
 set encoding=utf8
 
