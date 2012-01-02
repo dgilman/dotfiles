@@ -42,6 +42,10 @@ au BufWinLeave * mkview
 au BufWinEnter * silent loadview
 "center after n
 nnoremap n nzzzv
+"nnoremap n nzzzv<cr>
+
+command W w
+command Wq wq
 
 
 "makefile force real tabs
