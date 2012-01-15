@@ -41,7 +41,7 @@ filetype plugin on
 au BufWinLeave * mkview
 au BufWinEnter * silent loadview
 "center after n
-nnoremap n nzzzv<cr>
+nnoremap n nzzzv
 
 
 "makefile force real tabs
