@@ -40,6 +40,13 @@ filetype plugin on
 "save position
 au BufWinLeave * mkview
 au BufWinEnter * silent loadview
+"center after n
+nnoremap n nzzzv
+"nnoremap n nzzzv<cr>
+
+command W w
+command Wq wq
+
 
 "makefile force real tabs
 autocmd BufEnter ?akefile* set noet ts=8 sw=8 nocindent
