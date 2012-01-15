@@ -5,3 +5,4 @@ treediff.py: show files not common to two paths
 pysed.py: primitive sed with python regex.
 itunes_diff.py: given an itunes plist and a dirtree shows you files in dirtree not in itunes.  use it to get rid of duplicate songs in itunes after a "Organize Library".
 dep_chart_gen.py: dot file (graphviz) output of macports dependencies
+rename_screenshots.py: rename pre-Mac OS X 10.5 screenshots (Picture 1.png, Picture 2.png...) to timestamps (Screenshot YYYY/MM/DD HH:MM:SS.png)
