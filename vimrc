@@ -44,8 +44,13 @@ au BufWinEnter * silent loadview
 nnoremap n nzzzv
 "nnoremap n nzzzv<cr>
 
+"fat finger helpers
 command W w
 command Wq wq
+
+" insert FIOC breakpoint with C-b in insert mode
+command Pythonbreakpoint :normal iimport code; code.interact(local=locals())<CR><ESC>
+inoremap <C-b> <ESC>:Pythonbreakpoint<CR>i
 
 
 "makefile force real tabs
