@@ -43,10 +43,16 @@ au BufWinEnter * silent loadview
 "center after n
 "nnoremap n nzzzv
 
+"fat finger helpers
 command W w
 command Wq wq
 
 set encoding=utf8
+
+" insert FIOC breakpoint with C-b in insert mode
+command Pythonbreakpoint :normal iimport code; code.interact(local=locals())<CR><ESC>
+inoremap <C-b> <ESC>:Pythonbreakpoint<CR>i
+
 
 "makefile force real tabs
 autocmd BufEnter ?akefile* set noet ts=8 sw=8 nocindent
