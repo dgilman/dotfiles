@@ -38,3 +38,7 @@ alias w3m='w3m -F -cookie'
 alias man='w3mman'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 export MANPATH=$MANPATH:/opt/local/man
+
+# this defines a growl function for iterm2
+# usage: growl 'str'
+growl() { echo -e $'\e]9;'${1}'\007' ; return ; }
