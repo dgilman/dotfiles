@@ -1,4 +1,4 @@
-PATH=~/dotfiles/bin:/usr/local/bin:/usr/local/sbin:$PATH
+PATH=~/dotfiles/bin:/opt/local/bin:/opt/local/sbin:$PATH
 export PATH
 export EDITOR=vim
 export PAGER=w3m
@@ -8,8 +8,6 @@ export LESS=-R
 export GREP_OPTIONS="--color=auto"
 # force utf-8 encoding for pbpaste/pbcopy (and others?)
 export __CF_USER_TEXT_ENCODING=0x1F5:0x8000100:0x8000100
-
-stty erase ^H
 
 function dgilman_git_status {
    GIT_BRANCH=$(git branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
