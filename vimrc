@@ -49,7 +49,7 @@ command W w
 command Wq wq
 
 " insert FIOC breakpoint with C-b in insert mode
-command Pythonbreakpoint :normal iimport code; code.interact(local=locals())<CR><ESC>
+command Pythonbreakpoint :normal iimport pdb; pdb.set_trace()<CR><ESC>
 inoremap <C-b> <ESC>:Pythonbreakpoint<CR>i
 
 
