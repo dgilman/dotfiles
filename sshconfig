@@ -11,3 +11,6 @@ IdentityFile ~/.ssh/codaset_key
 
 Host backups.gilslotd.com
 IdentityFile ~/.ssh/prgmr_backup_key
+
+Host desupport.gilslotd.com
+IdentityFile ~/.ssh/gilman_ec2_privkey
