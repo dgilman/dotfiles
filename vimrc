@@ -14,9 +14,10 @@ set title
 set backspace=2         "Enable Backspacing
 set autoindent          "Enable Autoindenting
 set smartindent       	"Enable Smartindenting
-set tabstop=3				"Set Tabs at 3 Spaces
+set tabstop=8				"Set Tabs at 3 Spaces
 set expandtab
-set shiftwidth=3			"Set Shifts at 3 Spaces
+set shiftwidth=4			"Set Shifts at 3 Spaces
+set softtabstop=4
 "set nohls					"Do Not Highlight Search Results
 set incsearch   			"Search Incrementally
 set ruler               "Show Line Number
