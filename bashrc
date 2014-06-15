@@ -36,7 +36,7 @@ PS1='\[\033[31m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;31m
 fi
 
 alias w3m='w3m -F -cookie'
-alias man='w3mman'
+#alias man='w3mman' # mysteriously broken on dar.local
 #alias git='/Users/david/bin/git-achievements'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 export MANPATH=$MANPATH:/opt/local/man
