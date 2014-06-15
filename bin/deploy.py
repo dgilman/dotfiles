@@ -26,14 +26,18 @@ for path in symlinks.values():
    if os.path.exists(path):
       already_exists.append(path)
 
-if len(already_exists) != 0:
-   print "Some of these paths exist!  Fix the problem!"
+if len(already_exists) != 0 and '--force' not in sys.argv:
+   print "Some of these paths exist!  Fix the problem (or call with --force)!"
    print already_exists
    sys.exit(-1)
 
 for key, value in symlinks.items():
    print "Symlinking %s to %s..." % (key, value)
-   os.symlink(key, value)
+   try:
+      os.symlink(key, value)
+   except OSError:
+      if '--force' not in sys.argv:
+         raise
 
 subprocess.call(["git", "submodule", "init"])
 subprocess.call(["git", "submodule", "update"])
