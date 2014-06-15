@@ -58,3 +58,6 @@ autocmd BufEnter *.lib setf sh
 autocmd BufEnter *.module setf php
 autocmd BufEnter *.theme setf php
 autocmd BufEnter *.py :inoremap # X<C-H>#
+
+hi clear SpellBad
+hi SpellBad cterm=underline
