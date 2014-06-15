@@ -10,8 +10,6 @@ export GREP_OPTIONS="--color=auto"
 export __CF_USER_TEXT_ENCODING=0x1F5:0x8000100:0x8000100
 export EMAIL=dgilman@gilslotd.com
 
-stty erase ^H
-
 function dgilman_git_status {
    GIT_BRANCH=$(git branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
    GIT_TAG=$(git describe --tag 2>/dev/null)
