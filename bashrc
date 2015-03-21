@@ -28,7 +28,7 @@ function dgilman_git_status {
 }
 
 if [ "$(id -u)" != "0" ]; then
-PS1='\[\033[35m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
+PS1='\[\033[34m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[1;34m\]\u@\h\[\033[00m\]:\[\033[1;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
 else
 PS1='\[\033[31m\]`date +'%H:%M'`.${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
 fi
