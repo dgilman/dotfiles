@@ -5,7 +5,7 @@ export PAGER=w3m
 export COWPATH=/opt/local/share/cowsay/cows/
 export LDFLAGS=-L/opt/local/lib/
 export LESS=-R
-export GREP_OPTIONS="--color=auto"
+alias grep="grep --color=auto"
 # force utf-8 encoding for pbpaste/pbcopy (and others?)
 export __CF_USER_TEXT_ENCODING=0x1F5:0x8000100:0x8000100
 export EMAIL=dgilman@gilslotd.com
