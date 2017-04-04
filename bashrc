@@ -1,11 +1,11 @@
-PATH=~/dotfiles/bin:/opt/local/bin:/opt/local/sbin:$PATH
+PATH=~/dotfiles/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:$PATH
 export PATH
 export EDITOR=vim
-export PAGER=w3m
+export PAGER=less
 export COWPATH=/opt/local/share/cowsay/cows/
-export LDFLAGS=-L/opt/local/lib/
+#export LDFLAGS=-L/opt/local/lib/
 export LESS=-R
-export GREP_OPTIONS="--color=auto"
+export MANPATH=$MANPATH:/opt/local/man
 # force utf-8 encoding for pbpaste/pbcopy (and others?)
 export __CF_USER_TEXT_ENCODING=0x1F5:0x8000100:0x8000100
 export PYTHONSTARTUP="$HOME/.pythonstartup"
@@ -36,7 +36,7 @@ fi
 alias w3m='w3m -F -cookie'
 alias man='w3mman'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
-export MANPATH=$MANPATH:/opt/local/man
+alias grep='grep --color=auto'
 
 # this defines a growl function for iterm2
 # usage: growl 'str'
