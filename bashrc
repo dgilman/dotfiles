@@ -34,7 +34,7 @@ else
 fi
 
 alias w3m='w3m -F -cookie'
-alias man='w3mman'
+#alias man='w3mman'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias grep='grep --color=auto'
 
