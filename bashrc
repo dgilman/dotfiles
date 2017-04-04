@@ -28,9 +28,9 @@ function dgilman_git_status {
 }
 
 if [ "$(id -u)" != "0" ]; then
-	PS1='\[\033[30m\]`date +'%H:%M'`.\[\033[30m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
+	PS1='\[\033[30m\]`date +'%H:%M'`.\[\033[2;30m\]\u@charter\[\033[00m\]:\[\033[34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
 else
-	PS1='\[\033[31m\]`date +'%H:%M'`.\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
+	PS1='\[\033[31m\]`date +'%H:%M'`.\[\033[1;31m\]\u@charter\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
 fi
 
 alias w3m='w3m -F -cookie'
