@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Always empty the dest folder, as we post-process it to add album artwork which throws everything off.
+
 # no trailing slashes - force rsync to copy folder
 set -e
 
@@ -159,7 +161,7 @@ artists=(
 
 for f in "${artists[@]}"; do
    mkdir -p "$DEST/$f"
-   rsync -av --size-only "$SRC/$f/" "$DEST/$f"
+   rsync -av "$SRC/$f/" "$DEST/$f"
 done
 
 echo "Dont forget to sudo fatsort -cn /dev/disk1s1"
