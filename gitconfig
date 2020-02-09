@@ -1,6 +1,6 @@
 [user]
 	name = David Gilman
-	email = david.gilman@charter.com
+	email = david.g@leantaas.com
 [color]
 	branch = auto
 	diff = auto
@@ -19,3 +19,9 @@
     "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 [rerere]
 	enabled = 1
+[push]
+	default = current
+[fetch]
+	prune = true
+[diff]
+	noprefix = true
