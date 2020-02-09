@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+time (port selfupdate && port outdated && port livecheck installed)
