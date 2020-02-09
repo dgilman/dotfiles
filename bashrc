@@ -1,14 +1,12 @@
-PATH=~/dotfiles/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:$PATH
+PATH=~/dotfiles/bin:~/sonar-scanner/bin:~/gobindir/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:$PATH
 export PATH
 export EDITOR=vim
 export PAGER=less
 export COWPATH=/opt/local/share/cowsay/cows/
 #export LDFLAGS=-L/opt/local/lib/
-export LESS=-R
+export LESS="-R -S"
 export MANPATH=$MANPATH:/opt/local/man
-# force utf-8 encoding for pbpaste/pbcopy (and others?)
-export __CF_USER_TEXT_ENCODING=0x1F5:0x8000100:0x8000100
-export PYTHONSTARTUP="$HOME/.pythonstartup"
+#export PYTHONSTARTUP="$HOME/.pythonstartup"
 
 function dgilman_git_status {
    GIT_BRANCH=$(git branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
@@ -28,15 +26,16 @@ function dgilman_git_status {
 }
 
 if [ "$(id -u)" != "0" ]; then
-	PS1='\[\033[30m\]`date +'%H:%M'`.\[\033[2;30m\]\u@charter\[\033[00m\]:\[\033[34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
+	PS1='\[\033[30m\]`date +'%H:%M'`.\[\033[2;30m\]david@lappy\[\033[00m\]:\[\033[34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
 else
-	PS1='\[\033[31m\]`date +'%H:%M'`.\[\033[1;31m\]\u@charter\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
+	PS1='\[\033[31m\]`date +'%H:%M'`.\[\033[1;31m\]david@leantaas\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(dgilman_git_status)\$ '
 fi
 
 alias w3m='w3m -F -cookie'
 #alias man='w3mman'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias grep='grep --color=auto'
+alias ls='ls --color=auto'
 
 # this defines a growl function for iterm2
 # usage: growl 'str'
