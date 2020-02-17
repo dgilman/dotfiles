@@ -1,59 +1,127 @@
-set nocompatible      	"No Vi Compatibility
+set nocompatible
 
-"set undodir=~/.vim/undodir
-"set undofile
-"set undolevels=1000 "maximum number of changes that can be undone
-"set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+" This turns on all the language support magic?
+filetype plugin indent on
 
-"this does indent on return
-"imap <silent> <CR> <ESC>gg=G<C-O><C-O>o
+" Sensible encoding defaults
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
 
-set number " line count
-set smartcase "ignore case in search if no caps
-set title
-set backspace=2         "Enable Backspacing
-set autoindent          "Enable Autoindenting
-set smartindent       	"Enable Smartindenting
-set tabstop=3				"Set Tabs at 3 Spaces
+" Tell vim to optimize for drawing on fast, modern terminals
+set ttyfast
+
+" Kill ALL the mouse stuff
+set mouse=
+set ttymouse=
+
+" Fix backspace indent
+set backspace=indent,eol,start
+
+" Tabs. May be overridden by autocmd rules
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
 set expandtab
-set shiftwidth=3			"Set Shifts at 3 Spaces
-"set nohls					"Do Not Highlight Search Results
-set incsearch   			"Search Incrementally
-set ruler               "Show Line Number
-"set background=dark     "Use 'Dark' Color Scheme
-"set mouse=a             "Enable Using the Mouse
+
+" Yellow box around matches
+set hlsearch
+" Live search results
+set incsearch
+
+set fileformats=unix,dos,mac
+
+if exists('$SHELL')
+    set shell=$SHELL
+else
+    set shell=/bin/sh
+endif
+
+" syntax hilighting
+syntax on
+" show line numbers in the bottom row
+set ruler
+" left hand side line numbering
+set number
+
+" Try and use 256 colors
+set t_Co=256
+
+" Don't clear with the background color? idk
+if &term =~ '256color'
+  set t_ut=
+endif
+
+" Enable the second from the bottom status line
+set laststatus=2
+
+" Enable modelines
+set modeline
+set modelines=10
+
+" Enable vim setting the title in the terminal emulator
+" ("Thanks for flying Vim")
+set title
+" Use the filepath as the title
+set titlestring=%F
+
+" Contents of the second-from-the-bottom line
+set statusline=%F%m%r%h%w%=(%l\/%L,\ %c)
+
+" search will center on the line it's found in.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Handle some typos
+command W w
+command Q q
+command Wq wq
+
+" force hard tabs in makefiles
+autocmd BufEnter ?akefile* setlocal noexpandtab ts=8 sw=8 nocindent
+autocmd BufEnter CMakeLists.txt* setlocal filetype=cmake
+
+" copy to the mac clipboard with cmd-x cmd-c
+if has('macunix')
+  " pbcopy for OSX copy/paste
+  vmap <C-x> :!pbcopy<CR>
+  vmap <C-c> :w !pbcopy<CR><CR>
+endif
+
+" python
+" vim-python
+augroup vimrc-python
+  autocmd!
+  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
+      \ formatoptions+=croq softtabstop=4
+      \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+augroup END
+
+" Enable persistent undo
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000 "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+
+" Use colors for a white terminal background
+set background=light
+
+" Yell at user for trailing whitespace
+match Todo /\s\+$/
+
+" Let left-right motion wrap around to the prev/following lines
 set whichwrap+=<
 set whichwrap+=>
 set whichwrap+=[
 set whichwrap+=]
-syntax on
-set gfn=Monaco:h10
-set encoding=utf-8
-match Todo /\s\+$/
-"pcre
+
+" save and restore position in the file
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+
+" eregex.vim maps
 nnoremap / :M/
 nnoremap ? :M?
 nnoremap ,/ /
 nnoremap ,? ?
-"
-filetype plugin on
-"save position
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
-"center after n
-"nnoremap n nzzzv
 
-"fat finger helpers
-command W w
-command Wq wq
-
-" insert FIOC breakpoint with C-b in insert mode
-command Pythonbreakpoint :normal iimport code; code.interact(local=locals())<CR><ESC>
-inoremap <C-b> <ESC>:Pythonbreakpoint<CR>i
-
-"makefile force real tabs
-autocmd BufEnter ?akefile* set noet ts=8 sw=8 nocindent
-autocmd BufEnter *.lib setf sh
-autocmd BufEnter *.module setf php
-autocmd BufEnter *.theme setf php
-autocmd BufEnter *.py :inoremap # X<C-H>#
