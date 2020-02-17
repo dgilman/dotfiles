@@ -19,3 +19,5 @@
     "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 [rerere]
 	enabled = 1
+[push]
+	default = simple

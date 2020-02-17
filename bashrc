@@ -1,5 +1,4 @@
-PATH=~/dotfiles/bin:/opt/local/bin:/opt/local/sbin:$PATH
-export PATH
+export PATH=~/dotfiles/bin:/opt/local/bin:/opt/local/libexec/gnubin:/opt/local/sbin:$PATH
 export EDITOR=vim
 export PAGER=w3m
 export COWPATH=/opt/local/share/cowsay/cows/
@@ -36,7 +35,7 @@ fi
 alias w3m='w3m -F -cookie'
 alias man='w3mman'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
-export MANPATH=$MANPATH:/opt/local/man
+export MANPATH=/opt/local/share/man:$MANPATH
 
 # this defines a growl function for iterm2
 # usage: growl 'str'
