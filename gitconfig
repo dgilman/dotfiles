@@ -20,4 +20,8 @@
 [rerere]
 	enabled = 1
 [push]
-	default = simple
+	default = current
+[fetch]
+	prune = true
+[diff]
+	noprefix = true
