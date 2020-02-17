@@ -1,20 +1,12 @@
-PATH=/opt/local/bin:/opt/local/sbin:~/dotfiles/bin:$PATH
-export PATH
+export PATH=~/dotfiles/bin/:$PATH
 export EDITOR=vim
 export PAGER=w3m
-export COWPATH=/opt/local/share/cowsay/cows/
-export LDFLAGS=-L/opt/local/lib/
-export LESS=-R
-export GREP_OPTIONS="--color=auto"
-# force utf-8 encoding for pbpaste/pbcopy (and others?)
-export __CF_USER_TEXT_ENCODING=0x1F5:0x8000100:0x8000100
-
-stty erase ^H
+export LESS="-R -S"
 
 function dgilman_git_status {
-   GIT_BRANCH=$(git branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
+   GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
    GIT_TAG=$(git describe --tag 2>/dev/null)
-   GIT_DIRTY=$(git status --porcelain 2>/dev/null | grep -v "^??")
+   GIT_DIRTY=$(git status --porcelain 2>/dev/null | grep -v "^??" | head -1)
    GIT_STRING=""
    if [ ! -z "$GIT_BRANCH" ]; then
       GIT_STRING=" ""$GIT_STRING""$GIT_BRANCH"
@@ -36,27 +28,23 @@ fi
 
 alias w3m='w3m -F -cookie'
 alias man='w3mman'
-#alias git='/Users/david/bin/git-achievements'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
-export MANPATH=$MANPATH:/opt/local/man
-
-#source ~/.gitcompletion.sh
 
 #debian!?!?
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export TZ=America/Chicago
+export TZ=America/New_York
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
+if [ -x "$(command -v dircolors)" ]; then
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 if [ -f /etc/bash_completion ]; then
