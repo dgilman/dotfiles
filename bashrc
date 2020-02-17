@@ -2,7 +2,6 @@ export PATH=~/dotfiles/bin:/opt/local/bin:/opt/local/libexec/gnubin:/opt/local/s
 export EDITOR=vim
 export PAGER=w3m
 export LESS="-R -S"
-export GREP_OPTIONS="--color=auto"
 export MANPATH=/opt/local/share/man:$MANPATH
 
 function dgilman_git_status {
@@ -32,6 +31,18 @@ alias w3m='w3m -F -cookie'
 alias man='w3mman'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 
+# enable color support of ls and also add handy aliases
+if [ -x "$(command -v dircolors)" ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
        . /opt/local/etc/profile.d/bash_completion.sh
- fi
+fi
