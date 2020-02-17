@@ -1,18 +1,14 @@
 export PATH=~/dotfiles/bin:/opt/local/bin:/opt/local/libexec/gnubin:/opt/local/sbin:$PATH
 export EDITOR=vim
 export PAGER=w3m
-export COWPATH=/opt/local/share/cowsay/cows/
-export LDFLAGS=-L/opt/local/lib/
-export LESS=-R
+export LESS="-R -S"
 export GREP_OPTIONS="--color=auto"
-# force utf-8 encoding for pbpaste/pbcopy (and others?)
-export __CF_USER_TEXT_ENCODING=0x1F5:0x8000100:0x8000100
-export PYTHONSTARTUP="$HOME/.pythonstartup"
+export MANPATH=/opt/local/share/man:$MANPATH
 
 function dgilman_git_status {
-   GIT_BRANCH=$(git branch --no-color 2>/dev/null | sed -n 's/^\* \(.*\)$/\1/p')
+   GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
    GIT_TAG=$(git describe --tag 2>/dev/null)
-   GIT_DIRTY=$(git status --porcelain 2>/dev/null | grep -v "^??")
+   GIT_DIRTY=$(git status --porcelain 2>/dev/null | grep -v "^??" | head -1)
    GIT_STRING=""
    if [ ! -z "$GIT_BRANCH" ]; then
       GIT_STRING=" ""$GIT_STRING""$GIT_BRANCH"
@@ -35,11 +31,6 @@ fi
 alias w3m='w3m -F -cookie'
 alias man='w3mman'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
-export MANPATH=/opt/local/share/man:$MANPATH
-
-# this defines a growl function for iterm2
-# usage: growl 'str'
-growl() { echo -e $'\e]9;'${1}'\007' ; return ; }
 
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
        . /opt/local/etc/profile.d/bash_completion.sh
