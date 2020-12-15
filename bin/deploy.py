@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-symlinks = {"bash_profile": "~/.bash_profile", "bashrc": "~/.bashrc", "gitconfig": "~/.gitconfig", "sshconfig": "~/.ssh/config", "vimrc": "~/.vimrc", "wgetrc": "~/.wgetrc", "bin/pre-commit-dotfiles": "~/dotfiles/.git/hooks/pre-commit", "ledgerrc": "~/.ledgerrc", "pythonstartup": "~/.pythonstartup"}
+symlinks = {"bash_profile": "~/.bash_profile", "bashrc": "~/.bashrc", "gitconfig": "~/.gitconfig", "sshconfig": "~/.ssh/config", "vimrc": "~/.vimrc", "wgetrc": "~/.wgetrc", "bin/pre-commit-dotfiles": "~/dotfiles/.git/hooks/pre-commit", "ledgerrc": "~/.ledgerrc", "pythonstartup": "~/.pythonstartup", "zshrc": "~/.zshrc"}
 
 dirs = {"sshfolder": "~/.ssh"}
 
