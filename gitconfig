@@ -1,6 +1,6 @@
 [user]
 	name = David Gilman
-	email = david.g@leantaas.com
+	email = dgilman@atd-us.com
 	useConfigOnly = true
 [color]
 	branch = auto
@@ -27,3 +27,5 @@
 	prune = true
 [diff]
 	noprefix = true
+[pull]
+	ff = only

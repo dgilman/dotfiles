@@ -1,4 +1,4 @@
-PATH=~/dotfiles/bin:~/sonar-scanner/bin:~/gobindir/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:$PATH
+PATH=~/dotfiles/bin:~/bin:~/gobindir/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:$PATH
 export PATH
 export EDITOR=vim
 export PAGER=less
@@ -6,6 +6,8 @@ export COWPATH=/opt/local/share/cowsay/cows/
 #export LDFLAGS=-L/opt/local/lib/
 export LESS="-R -S"
 export MANPATH=$MANPATH:/opt/local/man
+export CLOUDSDK_PYTHON=python3.7
+export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/lib/libomp:/opt/local/lib
 #export PYTHONSTARTUP="$HOME/.pythonstartup"
 
 function dgilman_git_status {
@@ -36,6 +38,7 @@ alias w3m='w3m -F -cookie'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
+alias kill_zscalar="launchctl remove com.zscaler.tray && sudo launchctl remove com.zscaler.service && sudo launchctl remove com.zscaler.tunnel && sudo launchctl remove com.zscaler.tray.plist"
 
 # this defines a growl function for iterm2
 # usage: growl 'str'
