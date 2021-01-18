@@ -25,3 +25,14 @@
 	prune = true
 [diff]
 	noprefix = true
+[sendemail]
+	smtpEncryption = tls
+	smtpServer = smtp.gmail.com
+	smtpUser = davidgilman1@gmail.com
+	smtpServerPort = 587
+[diff]
+	algorithm = patience
+[pull]
+	ff = only
+[credential]
+	helper = osxkeychain
