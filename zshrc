@@ -2,7 +2,7 @@ path=('~/dotfiles/bin' '~/bin' '~/gobindir/bin' '/opt/local/libexec/gnubin' '/op
 export EDITOR=vim
 export PAGER=less
 export LESS="-R -S"
-export CLOUDSDK_PYTHON=python3.7
+export CLOUDSDK_PYTHON=python3.8
 export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/lib/libomp:/opt/local/lib
 manpath=('/opt/local/libexec/gnubin/man' '/opt/local/share/man' '/usr/share/man')
 unsetopt ignoreeof

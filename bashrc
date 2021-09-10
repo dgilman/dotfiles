@@ -6,7 +6,7 @@ export COWPATH=/opt/local/share/cowsay/cows/
 #export LDFLAGS=-L/opt/local/lib/
 export LESS="-R -S"
 export MANPATH=$MANPATH:/opt/local/man
-export CLOUDSDK_PYTHON=python3.7
+export CLOUDSDK_PYTHON=python3.8
 export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/lib/libomp:/opt/local/lib
 #export PYTHONSTARTUP="$HOME/.pythonstartup"
 
