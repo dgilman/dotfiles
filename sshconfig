@@ -4,6 +4,7 @@ ControlMaster auto
 Compression yes
 KeepAlive yes
 ServerAliveInterval 60
+AddKeysToAgent yes
 
 Host codaset.com
 IdentityFile ~/.ssh/codaset_key

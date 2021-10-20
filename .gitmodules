@@ -7,3 +7,6 @@
 [submodule "vim/vim-ledger"]
 	path = vim/vim-ledger
 	url = git@github.com:dgilman/vim-ledger.git
+[submodule "vim/Vim-Jinja2-Syntax"]
+	path = vim/Vim-Jinja2-Syntax
+	url = https://github.com/Glench/Vim-Jinja2-Syntax.git

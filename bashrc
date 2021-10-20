@@ -1,6 +1,6 @@
 export PATH=~/dotfiles/bin:/opt/local/bin:/opt/local/libexec/gnubin:/opt/local/sbin:$PATH
 export EDITOR=vim
-export PAGER=w3m
+export PAGER=less
 export LESS="-R -S"
 export MANPATH=/opt/local/share/man:$MANPATH
 
@@ -28,7 +28,7 @@ else
 fi
 
 alias w3m='w3m -F -cookie'
-alias man='w3mman'
+#alias man='w3mman'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 
 # enable color support of ls and also add handy aliases
@@ -46,3 +46,4 @@ fi
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
        . /opt/local/etc/profile.d/bash_completion.sh
 fi
+source "$HOME/.cargo/env"
