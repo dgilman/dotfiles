@@ -1,6 +1,6 @@
 [user]
 	name = David Gilman
-	email = dgilman@atd-us.com
+	email = dgilman@aidentified.com
 	useConfigOnly = true
 [color]
 	branch = auto
@@ -27,6 +27,13 @@
 [fetch]
 	prune = true
 [diff]
-	noprefix = true
+    noprefix = true
+    algorithm = histogram
 [pull]
 	ff = only
+[init]
+	defaultBranch = main
+[advice]
+    skippedCherryPicks = true
+[merge]
+    conflictStyle = zdiff3
