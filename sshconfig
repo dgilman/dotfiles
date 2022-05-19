@@ -4,6 +4,7 @@ ControlMaster auto
 Compression yes
 KeepAlive yes
 ServerAliveInterval 60
+AddKeysToAgent yes
 
 Host codaset.com
 IdentityFile ~/.ssh/codaset_key
@@ -12,4 +13,9 @@ Host backups.gilslotd.com
 IdentityFile ~/.ssh/prgmr_backup_key
 
 Host desupport.gilslotd.com
-IdentityFile ~/.ssh/gilman_ec2_privkey
+    IdentityFile ~/.ssh/gilman_ec2_privkey
+
+    #Host 192.168.1.1
+    #    HostkeyAlgorithms +ssh-rsa
+    #	PubkeyAcceptedAlgorithms +ssh-rsa
+
