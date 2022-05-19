@@ -46,4 +46,6 @@ growl() { echo -e $'\e]9;'${1}'\007' ; return ; }
 
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
        . /opt/local/etc/profile.d/bash_completion.sh
- fi
+fi
+
+complete -C '/opt/local/bin/aws_completer' aws
