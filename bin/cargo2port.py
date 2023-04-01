@@ -1,9 +1,9 @@
-#!/usr/bin/env python3.9
+#!/usr/bin/env python3.10
 import sys
 
-import toml
+import tomli as toml
 
-with open(sys.argv[1]) as fd:
+with open(sys.argv[1], 'rb') as fd:
     lockfile = toml.load(fd)
 
 longest_name_len = max(len(package['name']) for package in lockfile['package'])
