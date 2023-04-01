@@ -4,17 +4,11 @@ ControlMaster auto
 Compression yes
 KeepAlive yes
 ServerAliveInterval 60
-
-Host codaset.com
-IdentityFile ~/.ssh/codaset_key
+AddKeysToAgent yes
 
 Host backups.gilslotd.com
 IdentityFile ~/.ssh/prgmr_backup_key
 
 Host svn.debian.org git.debian.org bzr.debian.org hg.debian.org darcs.debian.org arch.debian.org
 User dgilman-guest
-IdentityFile ~/.ssh/id_rsa
-
-Host dgilman.xen.prgmr.com
-IdentityFile ~/.ssh/id_ed25519_inger
 IdentityFile ~/.ssh/id_rsa
