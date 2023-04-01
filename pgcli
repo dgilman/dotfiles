@@ -1,0 +1,1 @@
+PAGER="pspg -s 21 --line-numbers" pgcli
