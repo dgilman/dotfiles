@@ -2,7 +2,7 @@ export PATH=~/dotfiles/bin:/opt/local/bin:/opt/local/libexec/gnubin:/opt/local/s
 export EDITOR=vim
 export PAGER=less
 export LESS="-R -S"
-export MANPATH=/opt/local/share/man:$MANPATH
+export MANPATH=/opt/local/share/man:/Applications/Xcode.app/Contents/Developer/usr/share/man:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/share/man:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/share/man:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/share/man:$MANPATH
 
 function dgilman_git_status {
    GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
