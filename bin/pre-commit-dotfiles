@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import subprocess
 
-popen = subprocess.Popen(["git", "status", "-s"], stdout=subprocess.PIPE)
+resp = subprocess.run(["git", "status", "-s"], check=True, stdout=subprocess.PIPE, text=True)
 
-output = popen.communicate()[0].rsplit("\n")
+output = resp.stdout.rsplit("\n")
 
 stopme = False
 for gitfile in output:
@@ -12,7 +12,7 @@ for gitfile in output:
       stopme = True
 
 if stopme:
-   print "Hey!  You added a dotfile!  You probably want to update deploy.py."
-   print "If you know what you're doing git commit --no-verify."
+   print("Hey!  You added a dotfile!  You probably want to update deploy.py.")
+   print("If you know what you're doing git commit --no-verify.")
    import sys
    sys.exit(-1)

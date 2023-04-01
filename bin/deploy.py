@@ -1,6 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-symlinks = {"bash_profile": "~/.bash_profile",
+symlinks = {
+   "bash_profile": "~/.bash_profile",
    "bashrc": "~/.bashrc",
    "gitconfig": "~/.gitconfig",
    "sshconfig": "~/.ssh/config",
@@ -9,7 +10,10 @@ symlinks = {"bash_profile": "~/.bash_profile",
    "bin/pre-commit-dotfiles": "~/dotfiles/.git/hooks/pre-commit",
    "ledgerrc": "~/.ledgerrc",
    "dput.cf": "~/.dput.cf",
-   "muttrc": "~/.muttrc"}
+   "muttrc": "~/.muttrc",
+   "pgcli": "~/.pgcli",
+   "psqlrc": "~/.psqlrc",
+}
 
 import subprocess
 import os
@@ -27,20 +31,20 @@ for path in symlinks.values():
       already_exists.append(path)
 
 if len(already_exists) != 0 and '--force' not in sys.argv:
-   print "Some of these paths exist!  Fix the problem (or call with --force)!"
-   print already_exists
+   print("Some of these paths exist!  Fix the problem (or call with --force)!")
+   print(already_exists)
    sys.exit(-1)
 
 for key, value in symlinks.items():
-   print "Symlinking %s to %s..." % (key, value)
+   print(f"Symlinking {key} to {value}...")
    try:
       os.symlink(key, value)
    except OSError:
       if '--force' not in sys.argv:
          raise
 
-subprocess.call(["git", "submodule", "init"])
-subprocess.call(["git", "submodule", "update"])
+subprocess.check_call(["git", "submodule", "init"])
+subprocess.check_call(["git", "submodule", "update"])
 
-print "All done!"
-print "eregex.vim lives in ./vim and is a git submodule.  If you've got vim 7.3 or better you probably want to install it with a make install."
+print("All done!")
+print("eregex.vim lives in ./vim and is a git submodule.  If you've got vim 7.3 or better you probably want to install it with a make install.")
