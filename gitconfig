@@ -7,7 +7,9 @@
 	interactive = auto
 	status = auto
 [core]
-	excludesfile = /Users/david/.gitignore
+    excludesfile = /Users/david/.gitignore
+    fsmonitor = true
+    pager = diffr | less
 [gui]
 	recentrepo = /Users/david/dotfiles
 [log]
@@ -27,16 +29,17 @@
 	prune = true
 [diff]
 	noprefix = true
+	algorithm = patience
 [sendemail]
 	smtpEncryption = tls
 	smtpServer = smtp.gmail.com
 	smtpUser = davidgilman1@gmail.com
 	smtpServerPort = 587
-[diff]
-	algorithm = patience
 [pull]
 	ff = only
 [credential]
 	helper = osxkeychain
 [init]
-	defaultBranch = master
+    defaultBranch = master
+[interactive]
+    diffFilter = diffr
