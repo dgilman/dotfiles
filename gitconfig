@@ -20,21 +20,18 @@
    mergeadd = \
     "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
    lb = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
-    branch-cleanup = "!f() { for b in $(git branch --format=\"%(refname:short)\" | grep -vE \"(master|develop|dev|main)\"); do if [[ ! $(git cherry origin/main $b | grep \"^+\") ]]; then echo \"git branch -D $b\"; git branch -D $b; fi; done }; f"
+    branch-cleanup = "!f() { for b in $(git branch --format=\"%(refname:short)\" | grep -vE \"(master|develop|dev|main)\"); do if [[ ! $(git cherry origin/master $b | grep \"^+\") ]]; then echo \"git branch -D $b\"; git branch -D $b; fi; done }; f"
+    co = checkout
 [rerere]
 	enabled = 1
 [push]
 	default = current
+	negotiate = true
 [fetch]
 	prune = true
 [diff]
 	noprefix = true
-	algorithm = patience
-[sendemail]
-	smtpEncryption = tls
-	smtpServer = smtp.gmail.com
-	smtpUser = davidgilman1@gmail.com
-	smtpServerPort = 587
+	algorithm = histogram
 [pull]
 	ff = only
 [credential]
@@ -43,3 +40,7 @@
     defaultBranch = master
 [interactive]
     diffFilter = diffr
+[advice]
+	skippedCherryPicks = true
+[merge]
+	conflictStyle = zdiff3
