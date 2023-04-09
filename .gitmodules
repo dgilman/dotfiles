@@ -3,4 +3,7 @@
 	url = https://github.com/othree/eregex.vim
 [submodule "vim/eregex.vim"]
 	path = vim/eregex.vim
-	url = https://github.com/othree/eregex.vim
+    url = https://github.com/othree/eregex.vim
+[submodule "vim/Vim-Jinja2-Syntax"]
+	path = vim/Vim-Jinja2-Syntax
+	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
