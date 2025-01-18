@@ -116,8 +116,15 @@ set whichwrap+=[
 set whichwrap+=]
 
 " save and restore position in the file
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+" au BufWinLeave * mkview
+" au BufWinEnter * silent! loadview
+
+" reset position in those "git commit message" windows
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+  \ |   exe "normal! g`\""
+  \ | endif
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 
 " eregex.vim maps
 nnoremap / :M/
