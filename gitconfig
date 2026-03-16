@@ -6,7 +6,13 @@
 	branch = auto
 	diff = auto
 	interactive = auto
-	status = auto
+    status = auto
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
+[tag]
+    sort = version:refname
 [core]
     excludesfile = /Users/david/.gitignore
     fsmonitor = true
@@ -23,15 +29,18 @@
     branch-cleanup = "!f() { for b in $(git branch --format=\"%(refname:short)\" | grep -vE \"(master|develop|dev|main)\"); do if [[ ! $(git cherry origin/master $b | grep \"^+\") ]]; then echo \"git branch -D $b\"; git branch -D $b; fi; done }; f"
     co = checkout
 [rerere]
-	enabled = 1
+    enabled = false
+    autoupdate = true
 [push]
 	default = current
     negotiate = true
 [fetch]
-	prune = true
+    prune = true
+    pruneTags = true
 [diff]
     noprefix = true
     algorithm = histogram
+    external = difft --display inline
 [pull]
 	ff = only
 [init]

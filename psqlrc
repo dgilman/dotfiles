@@ -1,2 +1,4 @@
 \pset null 'Ø'
 \timing
+\set verbosity verbose
+\set show_context always

@@ -4,7 +4,7 @@ symlinks = {"bash_profile": "~/.bash_profile", "bashrc": "~/.bashrc", "gitconfig
 
 dirs = {"sshfolder": "~/.ssh"}
 
-utils = ["ed", "vim", "git", "curl", "wget", "diff", "make", "patch", "tar", "lzma", "bzip2", "python", "rsync", "ssh", "screen", "xmllint", "sed", "grep", "top", "ps", "mtr", "dig", "cat", "hexdump", "od", "svn", "cvs", "tail", "less", "w3m"]
+utils = ["ed", "vim", "git", "curl", "diff", "make", "patch", "tar", "rsync", "ssh", "screen", "sed", "grep", "top", "ps", "mtr", "dig", "cat", "xxd", "svn",  "tail", "less", "w3m"]
 
 import subprocess
 import os
